@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      body {
+        margin: 10px;
+      }
+    p{
+      color: black;
+      text-align:right;
+      font-size: 70%;
+    }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    </head>
+
+  <body style="text-align:center;">
+    <img height="150px" width="1300px" src='https://i.imgur.com/YoMfmG9.jpg'>
+
+    <h1> Resultado Consulta </h1>
+
+    {% for socio in socios %}
+      <br>
+      Matricula: 
+      {{socio.matricula}}
+      <br>
+      Nome: 
+      {{socio.nome}} {{socio.sobrenome}} 
+      <br>
+      Tipo:
+      {{socio.tipo}}
+      <br>
+      Numero de Horas
+      {{socio.numero_horas}}
+      <br>
+      Idade:
+      {{socio.idade}}
+      <br>
+      Endereco: 
+      {{socio.endereco}}
+      <br>
+      Telefone: 
+      {{socio.telefone}}
+      <br>
+      Telefone: 
+      {{socio.telefone}}
+      <br>
+      Email: 
+      {{socio.email}}
+      <br>
+      CPF: 
+      {{socio.cpf}}
+      <br>
+      Sexo: 
+      {{socio.sexo}}
+      <br>
+      Numero do Breve: 
+      {{socio.numero_brevet}}
+      <br>
+      Instituicao de Ensino: 
+      {{socio.instituicao}}
+      <br>
+      Data de Obtencao do Diploma: 
+      {{socio.idata_diploma}}
+
+    {% endfor %}
+<br><br>
+    <a href='/consultar'>
+      <button>Voltar</button>
+      </a>
+   </body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+    body {
+    
+    }
+    p{
+      color: black;
+      text-align:right;
+      font-size: 70%;
+    }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <fieldset>
+    <legend>Novo Sócio</legend>
+    <h1 style="text-align:center">Cadastro de Voo</h1>
+    <h2></h2>
+    <h2>Informaçoes Básicas</h2>
+    <h2>Avaliação</h2>
+    Selecione o Instrutor
+    <input list="instrutores" name="browser">
+      <datalist id="instrutores">
+        <option value="Pedro">
+        <option value="Fernanda">
+        <option value="Gabriel">
+        <option value="Mariana">
+        <option value="Júlio">
+      </datalist>
+  <input type="submit">
+  <br><br>
+  Resquisitos Eliminatórios:
+  <label for="check">Sim</label>
+  <input type="radio" name="nota" id="check" value="check">
+  <label for="not">Não</label>
+  <input type="radio" name="nota" id="not" value="not">
+  <br><br>
+  Parecer sobre o Voo:
+  <label for="nota1">1</label>
+  <input type="radio" name="nota" id="nota1" value="nota1">
+  <label for="nota2">2</label>
+  <input type="radio" name="nota" id="nota2" value="nota2">
+  <label for="nota3">3</label>
+  <input type="radio" name="nota" id="nota3" value="nota3">
+  <label for="nota4">4</label>
+  <input type="radio" name="nota" id="nota4" value="nota4"><br><br>
+  
+  <button>Cadastrar</button> <button>Reset</button> <button>Tela Anterior</button>
+  
+  
+  </fieldset>
+  </body>
+
+</html>

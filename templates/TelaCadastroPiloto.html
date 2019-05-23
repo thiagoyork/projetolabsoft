@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+    body {
+      margin: 10px;
+    }
+    p{
+      color: black;
+      text-align:right;
+      font-size: 70%;
+    }
+    input{
+      margin: 5px;
+      width: 150px;
+    }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body style="text-align:center;">
+    <img height="150px" width="1300px" src='https://i.imgur.com/YoMfmG9.jpg'>
+    <h1>Cadastro de Piloto</h1>
+    <form method="POST" action="/cadastro-piloto">
+    <input type="number" name="matricula" placeholder="Matricula">
+    <br>
+    <input type="text" name="nome" placeholder="Nome">
+    <br>
+    <input type="text" name="sobrenome" placeholder="Sobrenome">
+    <br>
+    <input type="number" name="idade" placeholder="Idade">
+    <br>
+    <input type="password" name="senha" placeholder="Senha">
+    <br>
+    <input type="text" name="endereco" placeholder="Endereco">
+    <br>
+    <input type="number" name="telefone" placeholder="Telefone">
+    <br>
+    <input type="email" name="email" placeholder="Email">
+    <br>
+    <input type="number" name="cpf" placeholder="CPF">
+    <br>
+    <input type="text" name="sexo" placeholder="Sexo">
+    <br>
+    <input type="number" name="breve" placeholder="Numero do Breve">
+    <a href='/'>
+      <input type="submit" value="Cadastrar"></a>
+      <br>
+      <br>
+      </form>
+      <a href='/cadastro-piloto'>
+      <button>Reset</button>
+      </a>
+      <a href='/'>
+      <button>Tela Anterior</button></a>
+    <br>
+    <br>
+  </body>
+
+</html>

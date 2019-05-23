@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      body {
+        margin: 10px;
+      }
+    th{
+      font-size: 20px;
+    }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body style="text-align:center;">
+    <img height="150px" width="1300px" src='https://i.imgur.com/YoMfmG9.jpg'>
+   
+  <h1>Socios Matriculados</h1>
+  <br>
+
+  <h2>Alunos</h2>
+    {% for aluno in alunos %}
+      <br>
+      {{aluno.matricula}}
+      {{aluno.nome}}
+    {% endfor %}
+
+  <h2>Pilotos</h2>
+    {% for piloto in pilotos %}
+      <br>
+      {{piloto.matricula}}
+      {{piloto.nome}}
+    {% endfor %}
+
+  <h2>Instrutores</h2>
+    {% for instrutor in instrutores %}
+      <br>
+      {{instrutor.matricula}}
+      {{instrutor.nome}}
+    {% endfor %}
+    <br><br>
+    <a href='/'>
+    <input type="button" value="Tela Inicial"></a>
+  </body>
+
+</html>
