@@ -1,21 +1,23 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,redirect
 import os 
 from flask_sqlalchemy import SQLAlchemy
 #from db_setup import init_db, db_session
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
-database_file = "sqlite:///{}".format(os.path.join(project_dir,'bookdatabase.db'))
+database_file = "sqlite:///{}".format(os.path.join(project_dir,'client_database.db'))
 #database_file2 = "sqlite:///{}".format(os.path.join(project_dir,'voos.db'))
-
 
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = database_file
+app.config["SQLALCHEMY_BINDS"] = {
+	'voos': "sqlite:///{}".format(os.path.join(project_dir,'voos.db'))
+}
 
 db = SQLAlchemy(app)
 
 class Socio(db.Model):
-	matricula = db.Column(db.String(80),unique = True, nullable = False,primary_key=True)
+	matricula = db.Column(db.Integer(),unique = True, nullable = False,primary_key=True)
 	nome = db.Column(db.String(80), nullable = True,unique = False)
 	sobrenome =db.Column(db.String(80), nullable = True)
 	telefone = db.Column(db.String(80), nullable = True)
@@ -34,8 +36,8 @@ class Socio(db.Model):
 	def __repr__(self):
 		return "<Nome: {} e matricula {}>".format(self.nome)#,self.matricula)
 
-class Voo():
-
+class Voos(db.Model):
+	__bind_key__ = 'voos'
 	numero_voo = db.Column(db.String(80),unique = True, nullable = False,primary_key=True)
 	aluno = db.Column(db.String(80), nullable = True)
 	instrutor = db.Column(db.String(80), nullable = True)
@@ -130,9 +132,9 @@ def home2():
 
 @app.route('/consultar',methods =["GET","POST"])
 def home3():
-	return render_template('Consulta.html')
+	return render_template('ConsultaSocio.html')
 
-@app.route('/',methods =["GET","POST"])
+@app.route('/inicial',methods =["GET","POST"])
 def home4():
 	return render_template('TelaInicial.html')
 
@@ -142,24 +144,52 @@ def home6():
 	if request.method =='POST':
 		matricula = request.form.get('matricula')
 		socios = Socio.query.filter_by(matricula = matricula)
-	return render_template('ResultadoConsulta.html',socios = socios)
+	return render_template('ResultadoConsultaSocio.html',socios = socios)
 
 @app.route('/cadastro-voo',methods =["GET","POST"])
 def home7():
 	if request.form:
 		print(request.form)
-		voo = Voo(numero_voo = request.form.get('numero_voo'),
+		voo = Voos(numero_voo = request.form.get('numero_voo'),
 					aluno = request.form.get('matricula_aluno'),
 					instrutor = request.form.get('matricula_instrutor'),
 					horas = request.form.get('horas_de_voo'),
 					rate = request.form.get('rate'),
 					data_hora = request.form.get('data_hora_voo'),
 			)
+		db.session.add(voo)
+		db.session.commit()
 	return render_template('TelaCadastroVoo.html')
 
-@app.route('/login',methods =["GET","POST"])
+@app.route('/',methods =["GET","POST"])
 def home8():
+	if request.method == "POST":
+		matricula = request.form.get('matricula')
+		senha = request.form.get('senha')
+		if not(senha == '' or matricula == ''):
+			socio = Socio.query.filter_by(matricula = matricula).first()
+			if (senha== socio.senha):
+				return redirect('/inicial')
+			else:
+				erro = 'Senha incorreta'
+
 	return render_template('TelaLogin.html')
+
+@app.route('/consulta-voo',methods =["GET","POST"])
+def home9():
+	return render_template('ConsultaVoo.html')
+
+@app.route('/resultado-voo',methods =["GET","POST"])
+def home10():
+	if request.method =='POST':
+		numero_voo = request.form.get('numero_voo')
+		voos = Voos.query.filter_by(numero_voo = numero_voo)
+	return render_template('ResultadoVoo.html',voos = voos)
+
+@app.route('/listar-voo',methods =["GET","POST"])
+def home11():
+	voos = Voos.query.all()
+	return render_template('ListarVoo.html',voos = voos)
 
 
 if __name__ == '__main__':

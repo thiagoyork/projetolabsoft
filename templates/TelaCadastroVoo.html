@@ -19,33 +19,36 @@
   <body style="text-align:center;">
     <img height="150px" width="1300px" src='https://i.imgur.com/YoMfmG9.jpg'>
     <h1>Cadastro de Voo</h1>
-    <input type="number" name="Matricula Instrutor" placeholder="Matricula Instrutor">
+    <form method="POST" action="/cadastro-voo">
+    <input type="number" name="numero_voo" placeholder="Numero Voo">
     <br>
-    <input type="number" name="Matricula Aluno" placeholder="Matricula Aluno">
+    <input type="number" name="matricula_instrutor" placeholder="Matricula Instrutor">
     <br>
-    <input type="number" name="Horas de Voo" placeholder="Horas de Voo">
+    <input type="number" name="matricula_aluno" placeholder="Matricula Aluno">
+    <br>
+    <input type="number" name="horas_de_voo" placeholder="Horas de Voo">
     <br>
     <br>
     Avaliacao do Voo
     <form>
-    <input type="radio" name="gender" value="male" checked> 1
-    <input type="radio" name="gender" value="female"> 2
-    <input type="radio" name="gender" value="other"> 3
-    <input type="radio" name="gender" value="other"> 4
-    </form>
+    <input type="radio" name="rate" value="1" checked> 1
+    <input type="radio" name="rate" value="2"> 2
+    <input type="radio" name="rate" value="3"> 3
+    <input type="radio" name="rate" value="4"> 4
     <br>
     Data e Hora do Voo<br>
-    <input type="datetime-local" name="datahoravoo" >
+    <input type="datetime-local" name="data_hora_voo" >
     <br>
     <br>
     <br>
-    <a href="/">
+    <a href="/inicial">
     <button type="submit">Cadastrar</button>
     </a>
+    </form>
     <a href="/cadastro-voo">
     <button>Reset</button>
     </a>
-    <a href="/">
+    <a href="/inicial">
     <button>Tela Anterior</button>
     </a>
     </fieldset>

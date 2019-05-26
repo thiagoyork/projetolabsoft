@@ -17,30 +17,25 @@
   <body style="text-align:center;">
     <img height="150px" width="1300px" src='https://i.imgur.com/YoMfmG9.jpg'>
    
-  <h1>Socios Matriculados</h1>
+  <h1>Voos Listados</h1>
   <br>
 
-  <h2>Alunos</h2>
-    {% for aluno in alunos %}
+    {% for voo in voos %}
       <br>
-      {{aluno.matricula}}
-      {{aluno.nome}}
-    {% endfor %}
-
-  <h2>Pilotos</h2>
-    {% for piloto in pilotos %}
+      Numero voo:
+      {{voo.numero_voo}}
       <br>
-      {{piloto.matricula}}
-      {{piloto.nome}}
-    {% endfor %}
-
-  <h2>Instrutores</h2>
-    {% for instrutor in instrutores %}
+      Aluno:
+      {{voo.aluno}}
       <br>
-      {{instrutor.matricula}}
-      {{instrutor.nome}}
+      Data Hora:
+      {{voo.data_hora}}
+      <br>
+      Rate:
+      {{voo.rate}}
+      <br>
     {% endfor %}
-    <br><br>
+    <br>
     <a href='/inicial'>
     <input type="button" value="Tela Inicial"></a>
   </body>

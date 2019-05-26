@@ -3,9 +3,9 @@
 
   <head>
     <style>
-      body {
-        margin: 10px;
-      }
+    body {
+    
+    }
     p{
       color: black;
       text-align:right;
@@ -16,12 +16,13 @@
     <script src="script.js"></script>
   </head>
 
-  <body style="text-align:center">
-    <img height="150px" width="1300px" src='https://i.imgur.com/YoMfmG9.jpg'>
-    <h1>Cadastro de Voo</h1>
+  <body>
+    <fieldset>
+    <legend>Novo Sócio</legend>
+    <h1 style="text-align:center">Cadastro de Voo</h1>
     <h2></h2>
-    <h2>Informacoes Basicas</h2>
-    <h2>Avaliacao</h2>
+    <h2>Informaçoes Básicas</h2>
+    <h2>Avaliação</h2>
     Selecione o Instrutor
     <input list="instrutores" name="browser">
       <datalist id="instrutores">
@@ -29,14 +30,14 @@
         <option value="Fernanda">
         <option value="Gabriel">
         <option value="Mariana">
-        <option value="Julio">
+        <option value="Júlio">
       </datalist>
   <input type="submit">
   <br><br>
-  Resquisitos Eliminatorios:
+  Resquisitos Eliminatórios:
   <label for="check">Sim</label>
   <input type="radio" name="nota" id="check" value="check">
-  <label for="not">Nao</label>
+  <label for="not">Não</label>
   <input type="radio" name="nota" id="not" value="not">
   <br><br>
   Parecer sobre o Voo:
@@ -49,11 +50,10 @@
   <label for="nota4">4</label>
   <input type="radio" name="nota" id="nota4" value="nota4"><br><br>
   
-  <a href='/'><button>Cadastrar</button> </a>
+  <button>Cadastrar</button> <button>Reset</button> <button>Tela Anterior</button>
   
-  <a href='/cadastro-voo'><button>Reset</button></a>
-  <a href='/'> <button>Tela Anterior</button> </a>
-
+  
+  </fieldset>
   </body>
 
 </html>
