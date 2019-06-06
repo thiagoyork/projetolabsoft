@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  	<title>
+  		Resultado Consulta
+  	</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+    	body{
+    		font-family: Lato
+    	}
+    </style>
+    <script src="script.js"></script>
+    </head>
+
+  <body>
+  	<nav class="navbar navbar-expand-lg navbar-light bg-light navbar sticky-top" id="navbar">
+		<div class="container">
+			<a class="navbar-brand" href="#"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="navbar-brand" href="#"><i class="fas fa-plane-departure"></i> AeroClube</a>		
+				</div>
+			</div>
+		</div>
+	</nav>
+    <div class="container" style="padding: 20px; text-align: center;">
+    	<div class="jumbotron">
+    		<h1 class="display-4"> <strong>Resultado Consulta</strong></h1>
+  			<hr>
+  			{% for socio in socios %}
+  			<div class="row">
+  				<div class="col-sm-4">
+					<p><strong>Matricula</strong>: {socio.matricula}}</p>
+					<p><strong>Nome</strong>: {{socio.nome}} {{socio.sobrenome}} </p>
+					<p><strong>Numero de Horas:</strong>{{socio.numero_horas}}</p>
+					<p><strong>Idade:</strong>{{socio.idade}}</p>
+  				</div>
+  				<div class="col-sm-4">
+  					<p><strong>Endereco:</strong>{{socio.endereco}}</p>
+  					<p><strong>Telefone:</strong>{{socio.telefone}}</p>
+  					<p><strong>Email:</strong>{{socio.email}}</p>
+  					<p><strong>CPF:</strong>{{socio.cpf}}</p>
+  				</div>
+  				<div class="col-sm-4">
+  					<p><strong>Sexo:</strong>{{socio.sexo}}</p>
+  					<p><strong>Numero do Breve:</strong>{{socio.numero_brevet}}</p>
+  					<p><strong>Instituicao de Ensino:</strong>{{socio.instituicao}}</p>
+  					<p><strong>Obtencao do Diploma:</strong>{{socio.idata_diploma}}</p>
+  				</div>
+  			</div>
+	    	{% endfor %}		
+		</div>   	
+    	
+    </div>
+
+    
+
+   </body>
+
+</html>
